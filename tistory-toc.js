@@ -1,5 +1,5 @@
 /**
- * BLUEAPPLE TOC Helper v1.0.0
+ * BLUEAPPLE TOC Helper v1.0.5 (Hierarchy Design)
  * Powered by Tocbot (MIT License)
  * Author: BLUEAPPLE
  */
@@ -51,9 +51,24 @@
             transition: all 0.2s;
             font-weight: 400;             /* [추가] 평소엔 얇게 */
         }
+        
+        .toc > .toc-list > li > .toc-link {
+            color: #888 !important;       /* 살짝 진한 회색 */
+            font-size: 16px !important;   /* 폰트 크게 */
+            font-weight: 600 !important;  /* 굵게 */
+            padding: 8px 10px !important; /* 간격 넓게 */
+            margin-top: 10px !important;  /* 대제목끼리는 띄우기 */
+        }
 
-        /* 마우스 올렸을 때 (Hover) - [새로 추가된 디자인] */
-        .toc-link:hover {
+        .toc-list .toc-list .toc-link {
+            color: #aaa !important;       /* 연한 회색 */
+            font-size: 13px !important;   /* 폰트 작게 */
+            font-weight: 400 !important;  /* 얇게 */
+            padding: 3px 10px 3px 20px !important; /* 들여쓰기(왼쪽 패딩) 더 줌 */
+        }
+        
+        /* 마우스 올렸을 때 (Hover) */
+        .toc a:hover, .toc .toc-link:hover {
             color: #333 !important;       /* 진한 회색 */
             font-weight: 700 !important;  /* 굵게 */
             background-color: rgba(0,0,0,0.03); /* 살짝 배경 깔기 */
