@@ -105,6 +105,7 @@
         if (tocContainer) {
             tocContainer.innerHTML = '';
             tocContainer.removeAttribute('style');
+            container.style = null;
         }
 
             tocbot.init({
