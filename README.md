@@ -8,7 +8,7 @@
 
 [Tocbot](https://tscanlin.github.io/tocbot/) 라이브러리를 기반으로 제작되었으며, 사용자 경험(UX)을 고려한 **하이브리드 디자인**이 적용되어 있습니다.
 
-## ✨ 주요 특징 (Features)
+##  주요 특징 (Features)
 
 * **⚡ 초간편 설치:** CSS와 JS가 통합된 Loader 방식이라 스크립트 한 줄로 끝납니다.
 * **🔄 하이브리드 디자인 (Hybrid UI):**
