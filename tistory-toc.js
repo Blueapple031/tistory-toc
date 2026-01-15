@@ -4,6 +4,27 @@
  * Author: BLUEAPPLE
  */
 (function() {
+    // [긴급] 박스 청소 함수 (발견 즉시 실행)
+    const cleanTOC = () => {
+        const tocs = document.querySelectorAll('.toc');
+        tocs.forEach(el => {
+            // 1. 안에 있는 "목차 영역" 글씨 비우기
+            if (el.innerText.includes('목차') || el.innerText.includes('발행')) {
+                el.innerHTML = ''; 
+            }
+            // 2. 점선 박스 스타일(style="...") 강제 초기화
+            if (el.getAttribute('style')) {
+                el.removeAttribute('style');
+                el.style.cssText = ""; // 한번 더 초기화
+            }
+        });
+    };
+
+    // 스크립트 시작하자마자 일단 청소부터 실행
+    cleanTOC();
+    // DOM이 생성되는 중간에 한번 더 실행
+    
+    document.addEventListener('DOMContentLoaded', cleanTOC);
     // 1. CSS 스타일 정의
     const cssStyles = `
         /* --- 목차(TOC) 스타일 시작 --- */
