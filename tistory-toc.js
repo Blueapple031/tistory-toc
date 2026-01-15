@@ -100,6 +100,9 @@
             headings.forEach((heading, index) => {
                 if (!heading.id) heading.id = 'toc-heading-' + index;
             });
+            
+            const tocContainer = document.querySelector('.toc');
+            if (tocContainer) tocContainer.innerHTML = '';
 
             tocbot.init({
                 tocSelector: '.toc',
