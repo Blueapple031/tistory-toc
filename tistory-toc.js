@@ -42,13 +42,22 @@
         .toc-list { list-style: none !important; margin: 0 !important; padding: 0 !important; }
         
         .toc-link {
-          text-decoration: none !important;
-          color: #999;        /* 평소엔 흐린색 */
-          font-size: 14px;
-          display: block;
-          padding: 5px 10px;
-          border-left: 2px solid #ddd; /* 회색 라인 */
-          transition: all 0.2s;
+            text-decoration: none !important;
+            color: #aaa !important;       /* [변경] 기존 #999 -> #aaa (더 연하게) */
+            font-size: 16px !important;   /* [변경] 기존 14px -> 16px (더 크게) */
+            display: block;
+            padding: 5px 10px;
+            border-left: 2px solid #eee;
+            transition: all 0.2s;
+            font-weight: 400;             /* [추가] 평소엔 얇게 */
+        }
+
+        /* 마우스 올렸을 때 (Hover) - [새로 추가된 디자인] */
+        .toc-link:hover {
+            color: #333 !important;       /* 진한 회색 */
+            font-weight: 700 !important;  /* 굵게 */
+            background-color: rgba(0,0,0,0.03); /* 살짝 배경 깔기 */
+            border-left: 2px solid #333;  /* 왼쪽 선 진하게 */
         }
         
         /* 4. 활성화된(보고 있는) 목차 */
