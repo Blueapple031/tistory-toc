@@ -6,13 +6,74 @@
 (function() {
     // 1. CSS 스타일 정의
     const cssStyles = `
-        /* 여기에 아까 완성한 CSS 코드를 전부 한 줄로 넣거나, 줄바꿈해서 넣으세요 */
-        .toc { background-color: #FAFAFA; padding: 25px; border-radius: 12px; margin: 40px 0; border: 1px solid #eee; font-family: 'Pretendard', sans-serif; transition: all 0.3s; z-index: 100; }
-        .toc.float-toc { position: fixed; top: 150px; left: 50px; width: 220px; background: transparent; border: none; padding: 0; margin: 0; }
-        @media screen and (max-width: 1300px) { .toc.float-toc { position: relative !important; top: auto !important; left: auto !important; width: auto !important; background-color: #FAFAFA !important; border: 1px solid #eee !important; padding: 25px !important; margin: 40px 0 !important; } }
+        /* --- 목차(TOC) 스타일 시작 --- */
+        
+        /* 1. [기본 상태] 본문 안에 있을 때 */
+        .toc {
+          position: relative;
+          background-color: #FAFAFA; /* 연한 회색 박스 */
+          padding: 25px;
+          border-radius: 12px;
+          margin: 40px 0;
+          border: 1px solid #eee;
+          font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 부드러운 애니메이션 필수 */
+          z-index: 100;
+          opacity: 1;
+        }
+        
+        /* 2. [변신 상태] 스크롤 내렸을 때 왼쪽으로 이동 */
+        /* 'float-toc'라는 클래스가 붙으면 이 모양으로 변합니다 */
+        .toc.float-toc {
+          position: fixed;   /* 화면 고정 */
+          top: 150px;        /* 상단 여백 */
+          left: 50px;        /* 왼쪽 벽에서 거리 */
+          width: 200px;      /* 너비 */
+          
+          /* 디자인 변경: 박스를 없애고 투명하게 */
+          background-color: transparent; 
+          border: none;
+          box-shadow: none;
+          margin: 0;
+          padding: 0;
+        }
+        
+        /* 3. 목차 리스트 & 폰트 */
         .toc-list { list-style: none !important; margin: 0 !important; padding: 0 !important; }
-        .toc-link { text-decoration: none !important; color: #999; font-size: 14px; display: block; padding: 5px 10px; border-left: 2px solid #ddd; transition: all 0.2s; }
-        .is-active-link { color: #222 !important; font-weight: 700; border-left: 3px solid #222; transform: translateX(2px); }
+        
+        .toc-link {
+          text-decoration: none !important;
+          color: #999;        /* 평소엔 흐린색 */
+          font-size: 14px;
+          display: block;
+          padding: 5px 10px;
+          border-left: 2px solid #ddd; /* 회색 라인 */
+          transition: all 0.2s;
+        }
+        
+        /* 4. 활성화된(보고 있는) 목차 */
+        .is-active-link {
+          color: #222 !important;      /* 진한 검정 */
+          font-weight: 700;
+          border-left: 3px solid #222; /* 검정 라인 강조 */
+          transform: translateX(2px);  /* 살짝 튀어나옴 */
+        }
+        
+        /* 5. 숨김 처리 (모바일이나 작은 화면에서 변신 방지용) */
+        @media screen and (max-width: 1300px) {
+          /* 화면이 작으면 강제로 본문 박스 형태 유지 */
+          .toc.float-toc {
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            width: auto !important;
+            background-color: #FAFAFA !important;
+            border: 1px solid #eee !important;
+            padding: 25px !important;
+            margin: 40px 0 !important;
+          }
+        }
+        /* --- 목차 스타일 끝 --- */
     `;
 
     // 2. CSS 헤드에 주입
