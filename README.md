@@ -1,5 +1,3 @@
----
-
 # Tistory Auto TOC (Hybrid Mode)
 
 티스토리 블로그를 위한 **반응형 자동 목차 생성기**입니다.
