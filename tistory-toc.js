@@ -101,8 +101,11 @@
                 if (!heading.id) heading.id = 'toc-heading-' + index;
             });
             
-            const tocContainer = document.querySelector('.toc');
-            if (tocContainer) tocContainer.innerHTML = '';
+        const tocContainer = document.querySelector('.toc');
+        if (tocContainer) {
+            tocContainer.innerHTML = '';
+            tocContainer.removeAttribute('style');
+        }
 
             tocbot.init({
                 tocSelector: '.toc',
