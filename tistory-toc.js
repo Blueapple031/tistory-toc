@@ -10,16 +10,13 @@
         
         /* 1. [기본 상태] 본문 안에 있을 때 */
         .toc {
-          position: relative;
-          background-color: #FAFAFA; /* 연한 회색 박스 */
-          padding: 25px;
-          border-radius: 12px;
-          margin: 40px 0;
-          border: 1px solid #eee;
-          font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 부드러운 애니메이션 필수 */
-          z-index: 100;
-          opacity: 1;
+            position: relative !important;
+            background-color: transparent !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 30px 0 !important;
+            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+            z-index: 100;
         }
         
         /* 2. [변신 상태] 스크롤 내렸을 때 왼쪽으로 이동 */
@@ -101,12 +98,11 @@
                 if (!heading.id) heading.id = 'toc-heading-' + index;
             });
             
-        const tocContainer = document.querySelector('.toc');
-        if (tocContainer) {
-            tocContainer.innerHTML = '';
-            tocContainer.removeAttribute('style');
-            container.style = null;
-        }
+        const tocContainers = document.querySelectorAll('.toc');
+        tocContainers.forEach(function(el) {
+            el.innerHTML = '';             // "목차 영역" 글씨 삭제
+            el.removeAttribute('style');   // 점선 스타일(style="...") 강제 삭제
+        });
 
             tocbot.init({
                 tocSelector: '.toc',
